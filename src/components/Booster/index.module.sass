@@ -1,9 +1,35 @@
+$tr: 0.7s
+$timing: ease-in-out
+	
+@keyframes moveToBottomRight
+	from
+		transform: translate(-50%, -50%)
+	to
+		transform: translate(20vw, 50vh) rotate(135.59deg)
+
 .booster
-	display: flex
-	flex-direction: column
+	cursor: pointer
 
 	img
 		width: 174px
 
 	.top
-		margin-bottom: -27px
+		margin-top: -140px
+
+	.top, .bottom
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+	&.opened
+
+		.top, .bottom
+			transition: all $tr $timing
+
+		.top
+			animation: moveToBottomRight $tr $timing forwards
+
+		.bottom
+			top: 107%
+			transition: 0
