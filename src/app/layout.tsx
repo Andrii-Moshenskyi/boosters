@@ -1,3 +1,6 @@
+import '@/styles/reset.sass'
+import '@/styles/global.sass'
+
 export default function RootLayout({
   children
 }: Readonly<{
