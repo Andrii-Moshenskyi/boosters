@@ -1,3 +1,36 @@
+$initialScale: scale(0.5)
+$finalScale: scale(1)
+$initialPosition: translate(0, 100vh) $initialScale
+$centeredPosition: translate(0, 0)
+
+@keyframes move1Card
+	0%
+		transform: $initialPosition
+	50%
+		transform: $centeredPosition $initialScale
+	100%
+		transform: translate(-200px, 0) $finalScale
+
+@keyframes move2Card
+	0%
+		transform: $initialPosition
+	50%
+		transform: $centeredPosition $initialScale
+	100%
+		transform: $centeredPosition $finalScale
+
+@keyframes move3Card
+	0%
+		transform: $initialPosition
+	50%
+		transform: $centeredPosition $initialScale
+	100%
+		transform: translate(200px, 0) $finalScale
+
+=moveCard($number)
+	&:nth-child(#{$number})
+		animation: move#{$number}Card 0.3s ease-in-out forwards #{calc($number / 4)}s
+
 .cards
 	display: flex
 	align-items: center
@@ -5,3 +38,9 @@
 	gap: 40px
 	height: 100vh
 	width: 100vw
+
+	li
+		transform: $initialPosition
+		+moveCard(1)
+		+moveCard(2)
+		+moveCard(3)
