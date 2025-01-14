@@ -7,11 +7,11 @@ export default function Card({
 	name: string
 	color: 'pink' | 'orange' | 'yellow'
 }) {
-	return <div className={`${s.card} ${s[color]}`}>
+	return <li className={`${s.card} ${s[color]}`}>
 
 		<strong>{name}</strong>
 
 		<div className={s.img} />
 
-	</div>
+	</li>
 }
