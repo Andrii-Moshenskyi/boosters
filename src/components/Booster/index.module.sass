@@ -1,11 +1,16 @@
-$tr: 0.7s
-$timing: ease-in-out
-	
+@import @/styles/settings
+
 @keyframes moveToBottomRight
-	from
+	0%
 		transform: translate(-50%, -50%)
-	to
+	100%
 		transform: translate(20vw, 50vh) rotate(135.59deg)
+
+@keyframes fadeOut
+	0%
+		opacity: 1
+	100%
+		opacity: 0
 
 .booster
 	cursor: pointer
@@ -28,8 +33,8 @@ $timing: ease-in-out
 			transition: all $tr $timing
 
 		.top
-			animation: moveToBottomRight $tr $timing forwards
+			animation: moveToBottomRight $tr $timing forwards, fadeOut $tr $timing calc($tr * 3) forwards
 
 		.bottom
-			top: 107%
-			transition: 0
+			top: 107vh
+			animation: fadeOut $tr $timing calc($tr * 3) forwards

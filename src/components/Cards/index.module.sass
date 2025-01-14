@@ -1,3 +1,5 @@
+@import @/styles/settings
+
 $initialScale: scale(0.5)
 $finalScale: scale(1)
 $initialPosition: translate(0, 100vh) $initialScale
@@ -29,7 +31,7 @@ $centeredPosition: translate(0, 0)
 
 =moveCard($number)
 	&:nth-child(#{$number})
-		animation: move#{$number}Card 0.3s ease-in-out forwards #{calc($number / 4)}s
+		animation: move#{$number}Card $tr $timing forwards #{calc($number / 4)}s
 
 .cards
 	display: flex
@@ -41,6 +43,10 @@ $centeredPosition: translate(0, 0)
 
 	li
 		transform: $initialPosition
-		+moveCard(1)
-		+moveCard(2)
-		+moveCard(3)
+
+	&.opened
+
+		li
+			+moveCard(1)
+			+moveCard(2)
+			+moveCard(3)

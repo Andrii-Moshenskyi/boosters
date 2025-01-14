@@ -1,8 +1,12 @@
 import s from './index.module.sass'
 import Card from './Card'
 
-export default function Cards() {
-	return <ul className={s.cards}>
+export default function Cards({
+	isBoosterOpened
+}: {
+	isBoosterOpened: boolean
+}) {
+	return <ul className={`${s.cards} ${isBoosterOpened ? s.opened : ''}`}>
 		<Card
 			name='Card Name 1'
 			color='pink'
