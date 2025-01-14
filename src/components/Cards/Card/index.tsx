@@ -1,4 +1,5 @@
 import s from './index.module.sass'
+import stars from './img/stars.svg'
 
 export default function Card({
 	name,
@@ -18,6 +19,11 @@ export default function Card({
 			<div className={s.img} />
 
 		</div>
+
+		<img
+			src={stars.src}
+			alt='Stars'
+		/>
 
 	</li>
 }
