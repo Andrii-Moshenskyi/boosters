@@ -7,11 +7,17 @@ export default function Card({
 	name: string
 	color: 'pink' | 'orange' | 'yellow'
 }) {
-	return <li className={`${s.card} ${s[color]}`}>
+	return <li className={s.card}>
 
-		<strong>{name}</strong>
+		<div className={s.label}>New</div>
 
-		<div className={s.img} />
+		<div className={`${s.inner} ${s[color]}`}>
+
+			<strong>{name}</strong>
+
+			<div className={s.img} />
+
+		</div>
 
 	</li>
 }
